@@ -68,7 +68,7 @@ def encode_hevc(name, cq):
 def compare_ssim_psnr(name, cq):
   out, err = command([
     ffmpeg(),
-    '-threads', '1', '-hide_banner', '-loglevel', 'info',
+    '-hide_banner', '-loglevel', 'info',
     '-i', "{}".format(subname(name, 1)), '-i', "{}".format(subname(name, cq)),
     '-lavfi', "ssim; [0:v][1:v]psnr", '-f', 'null', '-'
   ])
